@@ -26,7 +26,7 @@ const ENV_FILE = !NODE_ENV ? '.env.development' : `.env.${NODE_ENV}`;
           username: configService.get<string>('database.user'),
           password: configService.get<string>('database.password'),
           database: configService.get<string>('database.name'),
-      synchronize: true,
+          synchronize: configService.get<boolean>('database.synchronize'),
       autoLoadEntities: true,
         };
       },
