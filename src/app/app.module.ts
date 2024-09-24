@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import appConfig from 'src/config/app.config';
 import databaseConfig from 'src/config/database.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -12,7 +13,7 @@ const ENV_FILE = !NODE_ENV ? '.env.development' : `.env.${NODE_ENV}`;
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [databaseConfig],
+      load: [appConfig, databaseConfig],
       envFilePath: ENV_FILE,
     }),
     TypeOrmModule.forRootAsync({
