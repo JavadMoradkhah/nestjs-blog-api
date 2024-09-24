@@ -5,8 +5,8 @@ import databaseConfig from 'src/config/database.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-const ENV = process.env.NODE_ENV;
-const ENV_FILE = !ENV ? '.env.development' : `.env.${ENV}`;
+const NODE_ENV = process.env.NODE_ENV;
+const ENV_FILE = !NODE_ENV ? '.env.development' : `.env.${NODE_ENV}`;
 
 @Module({
   imports: [
