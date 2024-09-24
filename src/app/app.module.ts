@@ -5,11 +5,15 @@ import databaseConfig from 'src/config/database.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+const ENV = process.env.NODE_ENV;
+const ENV_FILE = !ENV ? '.env.development' : `.env.${ENV}`;
+
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       load: [databaseConfig],
+      envFilePath: ENV_FILE,
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
