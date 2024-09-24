@@ -15,6 +15,7 @@ import { AppService } from './app.service';
       username: 'postgres',
       password: '9610',
       synchronize: true,
+      autoLoadEntities: true,
     }),
   ],
   controllers: [AppController],
